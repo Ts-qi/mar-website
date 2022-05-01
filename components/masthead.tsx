@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useRef, useState } from "react";
 import Image from 'next/image';
 import { ScrollContext } from "../utils/scroll-observer";
 const Masthead : React.FC= ()=> {
-  const [imageLoaded,setImageLoaded] = useState(false)
+  const [imageLoaded,setImageLoaded] = useState(false) // 图片动画
   const refContainer = useRef<HTMLDivElement>(null);
   const { scrollY } = useContext(ScrollContext);
   let progress = 0;
@@ -32,8 +32,7 @@ const Masthead : React.FC= ()=> {
         <source src="https://margelo.io/assets/masthead-bg.webm" type="video/webm; codes=vp9" />
         <source src="https://margelo.io/assets/masthead-bg.mp4" type="video/mp4" />
       </video>
-      <div className={`flex-grow-0 pt-10 tarnsition-opacity duration-1000 
-       ${imageLoaded? 'opacity-100': 'opacity-0 -translate-y-10'}`} >
+      <div className={`flex-grow-0 pt-10 tarnsition-opacity duration-1000 `} >
         <Image src="https://margelo.io/assets/logo.svg" width={128/3} height={114/3} alt="logo" />
       </div>
        <div className="p-12 font-bold z-10 text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.4)]
@@ -44,7 +43,7 @@ const Masthead : React.FC= ()=> {
         </h2>
        </div>
        <div className={`flex-grow-0 pb-20 transition-all duration-1000 md:pb-10 
-       ${imageLoaded? 'opacity-100': 'opacity-0'}` }
+      }` }
        >
         <Image 
           src="https://margelo.io/assets/arrow-down.png" 

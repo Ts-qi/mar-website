@@ -4,6 +4,8 @@ import Image from 'next/image'
 // import styles from '../styles/Home.module.css';
 import Masthead from '../components/masthead';
 import AboutUs from '../components/aboutus';
+import Skills from '../components/skills';
+
 
 
 const Home: NextPage = () => {
@@ -16,6 +18,8 @@ const Home: NextPage = () => {
       </Head>
         <Masthead />
         <AboutUs /> 
+        <Skills />
+
 
       {/* <footer className={styles.footer}>
         <a
