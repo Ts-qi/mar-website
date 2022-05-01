@@ -13,19 +13,23 @@ const Skills :React.FC = () => {
   let progress = 0
   const { current: elContainer } = refContainer;
   if(elContainer) {
-    const { clientHeight,offsetTop } = elContainer;
-    const screenH = window.innerHeight;
+    // clientHeight DOM 的可视高度不包括整个文档的滚动条，
+    //也不包括<html>元素的边框，也不包括<body>的边框和滚动条
+    const { clientHeight,offsetTop } = elContainer; 
+    const screenH = window.innerHeight; // DOM视口的大小，包括滚动条
     const halfH = screenH/2
     const percentY = Math.min(
       clientHeight + halfH,
       Math.max(-screenH,scrollY - offsetTop) + halfH
     )/ clientHeight;
     progress = Math.min(numOfPage - 0.5 ,Math.max(0.5,percentY * numOfPage))
-    console.log(scrollY,'scrollY');
-    console.log(screenH,'screenH');
-    console.log(halfH,'halfH');
-    console.log(percentY,'percentY');
-    console.log(progress,'progress');
+    // console.log(clientHeight,'clientHeight');
+    // console.log(offsetTop,'offsetTop');
+    // console.log(scrollY,'scrollY');
+    // console.log(screenH,'screenH');
+    // console.log(halfH,'halfH');
+    // console.log(percentY,'percentY');
+    // console.log(progress,'progress');
     
   }
   return (
